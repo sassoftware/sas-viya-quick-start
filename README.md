@@ -6,7 +6,7 @@ The SAS Viya Quick Start video series provides tutorials for many of the SAS Viy
 
 ### Quick Start Video Series
 
-***NEED TO CONFIRM*** - The following videos are included in the Quick Start series:
+The following videos are included in the Quick Start series:
 - SAS Viya and the Analytics Life Cycle
 - Load Quick Start Video Data
 - Discover Information Assets with SAS Information Catalog
@@ -24,23 +24,25 @@ The SAS Viya Quick Start video series provides tutorials for many of the SAS Viy
 ### Prerequisites
 
 It is possible your SAS Viya environmnent may already have the supporting video files loaded. To determine if the files are included, follow these steps:
-1. ***Steps TBD***
+1.	In SAS Viya, select the Applications menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
+2.	In the Navigation pane on the left, select **Explorer**. 
+3.	Expand **Files** > **data** > **quick-start-videos**. If this folder exsists, then the supporting files are loaded in your environment. 
 
 If the files are not loaded, then follow the **Installation** steps.
 
 ### Installation
 
-1.	Visit (GitHub page) and download the **Quick_Start_Video_Files.zip** file. 
-2.	Unzip the files to your local machine. 
-3.	In SAS Viya, select the **Applications** menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
+1.	Visit https://github.com/sassoftware/sas-viya-quick-start-videos and click **Code** > **Download ZIP**. 
+2.	Unzip the files to your local machine. By default, the files will be in a folder named **sas-viya-quick-start-videos-main**.
+3.	In SAS Viya, select the Applications menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
 4.	In the Navigation pane on the left, select the **Explorer** icon. 
-5.	Expand **Folder Shortcuts**. Right-click on **Shortcut to My Folder** and select **New Folder**. Name the folder **Quick Start Videos**. 
-6.	Select the new **Quick Start Videos** folder and click the **Upload** button. 
-7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press Ctrl+A to select all the files, then click **Open** > **Upload**.
-8.	In the Explorer, expand the **Quick Start Videos** folder and double-click the **Load Quick Start Data.sas** program to open it. 
-9.	Do not make any changes to the code. Click **Run**. Confirm the **home_equity.sashdat** file is listed in the CAS File Information table. 
-
-NOTE: In the video demonstrations, the HOME_EQUITY table is in the **Samples** caslib. As you follow along in your environment, HOME_EQUITY will be in the **Casuser** caslib. 
+5.	Expand **Files**. Navigate to your preferred location for storing the video files. You must have write access.  Right-click on the desired folder and select **New folder**. Name the folder **quick-start-videos**.  
+NOTE: The file location demonstrated in the video is **Files** > **data** > **quick-start-videos**.
+6.	Select the new **quick-start-videos** folder and click the **Upload** button. 
+7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press **Ctrl+A** to select all the files, then click **Open** > **Upload**.
+8.	In the Explorer, expand the **quick-start-videos** folder and double-click the **Load_Quick_Start_Data.sas** program to open it. 
+9.	Do not make any changes to the code. Click **Run**. Confirm the **home_equity.sashdat** file is listed in the CAS File Information table.  
+NOTE: As you follow along in your environment, the **HOME_EQUITY** table will be in the **Casuser** caslib. 
 
 ## Contributing
 
