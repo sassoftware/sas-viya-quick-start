@@ -4,10 +4,10 @@
 /*******************************************************************************/
 
 
-/**************************************************/*
-/* Run this program to load the home_equity.csv    /*
-/*     files used the SAS Viya Quick Start Videos. /*
-/**************************************************/*
+/***************************************************/
+/* Run this program to load the home_equity.csv    */
+/*     files used the SAS Viya Quick Start Videos. */
+/***************************************************/
 
  /* Read the home_equity.csv sample data from the SAS Support Example Data website */
 filename data TEMP;
