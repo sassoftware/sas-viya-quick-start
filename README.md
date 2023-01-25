@@ -26,7 +26,7 @@ The following videos are included in the Quick Start series:
 It is possible your SAS Viya environmnent may already have the supporting video files loaded. To determine if the files are included, follow these steps:
 1.	In SAS Viya, select the Applications menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
 2.	In the Navigation pane on the left, select **Explorer**. 
-3.	Expand **Files** > **data** > **quick-start-videos**. If this folder exsists, then the supporting files are loaded in your environment. 
+3.	Expand **Files** > **data** > **quick-start**. If this folder exsists, then the supporting files are loaded in your environment. 
 
 If the files are not loaded, then follow the **Installation** steps.
 
