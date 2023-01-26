@@ -63,6 +63,6 @@ proc casutil;
     load data=work.home_equity outcaslib="casuser" casout="home_equity" promote;
     save casdata="home_equity" incaslib="casuser" casout="home_equity" outcaslib="casuser" replace;
     list files incaslib="casuser";
-    droptable casdata="home_equity" incaslib="casuser" quiet;
+    *droptable casdata="home_equity" incaslib="casuser" quiet;
 quit;
 cas mysession terminate;
