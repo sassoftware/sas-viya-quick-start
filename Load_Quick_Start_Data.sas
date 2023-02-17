@@ -53,16 +53,26 @@ run;
 
 filename data clear;
 
+/* Create copy of HOME_EQUITY in quick-start folder */
+
+%let fileName = %scan(&_sasprogramfile,-1,'/');
+%let path = %sysfunc(tranwrd(&_sasprogramfile, &fileName,));
+libname temp "&path";
+
+proc copy in=work out=temp;
+    select home_equity;
+run;
+
+libname temp clear;
+
 /*  Load the HOME_EQUITY into memory in the CASUSER caslib. */
-/*  Promote table so it can be accessed in other SAS Viya applications. */
 /*  Save HOME_EQUITY.sashdat in the CASUSER caslib so it is saved on disk.  */
 
 cas mysession;
 proc casutil;
     droptable casdata="home_equity" incaslib="casuser" quiet;
-    load data=work.home_equity outcaslib="casuser" casout="home_equity" promote;
+    load data=work.home_equity outcaslib="casuser" casout="home_equity";
     save casdata="home_equity" incaslib="casuser" casout="home_equity" outcaslib="casuser" replace;
     list files incaslib="casuser";
-    *droptable casdata="home_equity" incaslib="casuser" quiet;
 quit;
 cas mysession terminate;
