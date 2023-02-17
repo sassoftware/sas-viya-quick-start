@@ -3,19 +3,27 @@
 /*  SPDX-License-Identifier: Apache-2.0                                        */
 /*******************************************************************************/
 
+/***************************/
+/* Create work.home_equity */
+/***************************/
 
-/******************************************/
-/* SAS Program Executed on Compute Server */
-/******************************************/
+%let fileName = %scan(&_sasprogramfile,-1,'/');
+%let path = %sysfunc(tranwrd(&_sasprogramfile, &fileName,));
+%include "&path/Load_Quick_Start_Data.sas";
+
+
+/******************************************************/
+/* Scenario 1: SAS Program Executed on Compute Server */
+/******************************************************/
 
 title "Compute Server Program";
 
-libname mydata "c:/mydata";
+libname mydata "c:\mydata";
 
 data mydata.home_equity;
     length LOAN_OUTCOME $ 7;
     set work.home_equity;
-    LTV=MortDue/Value;
+    if Value ne . and MortDue ne . then LTV=MortDue/Value;
     CITY=propcase(City);
     if BAD=0 then LOAN_OUTCOME='Paid';
         else LOAN_OUTCOME='Default';
@@ -37,9 +45,10 @@ proc means data=mydata.home_equity noprint;
     output out=home_equity_summary;
 run;
 
-/*************************************************************/
-/* SAS Program Executed on CAS Server with CAS-Enabled Steps */
-/*************************************************************/
+
+/*************************************************************************/
+/* Scenario 2: SAS Program Executed on CAS Server with CAS-Enabled Steps */
+/*************************************************************************/
 
 cas mySession;
 
@@ -49,13 +58,17 @@ proc casutil;
 quit;
 
 /* Option #2: Load Data into Memory via DATA Step */
+* Assign librefs to all caslibs;
 caslib _all_ assign;
+
+* Assign libref CASUSER to corresponding caslib;
+*libname casuser cas caslib=casuser;
 
 title "CAS-Enabled PROCS";
 data casuser.home_equity;
     length LOAN_OUTCOME $ 7;
     set work.home_equity;
-    LTV=MortDue/Value;
+    if Value ne . and MortDue ne . then LTV=MortDue/Value;
     CITY=propcase(City);
     if BAD=0 then LOAN_OUTCOME='Paid';
         else LOAN_OUTCOME='Default';
@@ -78,21 +91,24 @@ run;
 
 cas mySession terminate;
 
-/************************************************/
-/* SAS Program Executed on CAS Server with CASL */
-/************************************************/
+
+/************************************************************/
+/* Scenario 3: SAS Program Executed on CAS Server with CASL */
+/************************************************************/
 
 cas mySession;
-caslib _all_ assign;
 
 title "CASL Results";
 proc cas;
+  * Create dictionary to reference home_equity table in Casuser;
     tbl={name='home_equity', caslib='casuser'};
+  * Create CASL variable named DS to store DATA step code. Both 
+      input and output tables must be in-memory;
     source ds;
         data casuser.home_equity;
             length LOAN_OUTCOME $ 7;
-            set work.home_equity;
-            LTV=MortDue/Value;
+            set casuser.home_equity;
+            if Value ne . and MortDue ne . then LTV=MortDue/Value;
             CITY=propcase(City);
             if BAD=0 then LOAN_OUTCOME='Paid';
                 else LOAN_OUTCOME='Default';
@@ -101,15 +117,21 @@ proc cas;
             format LTV percent6.;
         run;
     endsource;
+  * Drop home_equity from casuser if it exists;
     table.dropTable / name=tbl['name'], caslib=tbl['caslib'], quiet=true;
-    /* update the path to match location of HOME_EQUITY.sas7bdat in Files */
-    upload path="/export/sas-viya/homes/user5/Studio Video/HOME_EQUITY.sas7bdat";
+  * Load home_equity.sas7bdat to casuser;
+    upload path="&path/home_equity.sas7bdat" 
+        casout={caslib="casuser", name="home_equity", replace="true"};
+  * Execute DATA step code;
     dataStep.runCode / code=ds;
+  * List home_equity column attributes, similar to PROC CONTENTS;
     table.columnInfo / 
         table=tbl;
+  * Generate frequency report, similar to PROC FREQ;
     simple.freq / 
         table=tbl, 
         inputs={'Loan_Outcome', 'Reason', 'Job'};
+  * Generate summary table, similar to PROC MEANS;
     simple.summary / 
         table=tbl, 
         input={'Loan', 'MortDue', 'Value', 'DebtInc'}, 
@@ -118,6 +140,3 @@ quit;
 title;
 
 cas mySession terminate;
-
-
-
