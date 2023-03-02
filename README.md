@@ -8,7 +8,6 @@ The SAS Viya Quick Start video series provides tutorials for many of the SAS Viy
 
 The following videos are included in the Quick Start series:
 - SAS Viya and the Analytics Life Cycle
-- Load Quick Start Video Data
 - Discover Information Assets with SAS Information Catalog
 - Prepare Data with SAS Data Studio
 - Explore and Visualize Data with SAS Visual Analytics
