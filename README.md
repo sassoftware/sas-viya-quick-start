@@ -17,7 +17,7 @@ The following videos are included in the Quick Start series:
 - Develop SAS Code with SAS Studio
 - Build Flows with SAS Studio
 - Develop Python Code with SAS Studio
-- Use Jupyter Hub in SAS Viya 
+- Use the Python SWAT Package on the SAS Viya Platform
 - Accelerate Code in SAS Cloud Analytic Services
 
 ### Prerequisites
