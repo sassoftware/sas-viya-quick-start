@@ -2,7 +2,7 @@
 
 ## Overview
 
-The SAS Viya Quick Start video series provides tutorials for many of the SAS Viya applications. The videos are designed to allow users to follow along in the software to enhance their learning experience. This repository provides the files referenced in the videos so that you can configure your environment to follow along.  
+[The SAS Viya Quick Start video series](https://video.sas.com/category/videos/sas-viya-quick-start){:target="_blank"} provides tutorials for many of the SAS Viya applications. The videos are designed to allow users to follow along in the software to enhance their learning experience. This repository provides the files referenced in the videos so that you can configure your environment to follow along.  
 
 ### Quick Start Video Series
 
