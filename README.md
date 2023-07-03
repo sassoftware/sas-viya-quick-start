@@ -2,23 +2,23 @@
 
 ## Overview
 
-<a href="https://video.sas.com/category/videos/sas-viya-quick-start" target="_blank">The SAS Viya Quick Start video series</a> provides tutorials for many of the SAS Viya applications. The videos are designed to allow users to follow along in the software to enhance their learning experience. This repository provides the files referenced in the videos so that you can configure your environment to follow along.  
+[The SAS Viya Quick Start video series](https://video.sas.com/category/videos/sas-viya-quick-start) provides tutorials for many of the SAS Viya applications. The videos are designed to allow users to follow along in the software to enhance their learning experience. This repository provides the files referenced in the videos so that you can configure your environment to follow along.  
 
 ### Quick Start Video Series
 
 The following videos are included in the Quick Start series:
-- SAS Viya and the Analytics Life Cycle
-- Discover Information Assets with SAS Information Catalog
-- Prepare Data with SAS Data Studio
-- Explore and Visualize Data with SAS Visual Analytics
-- Build Models with SAS Model Studio
-- Manage Models with SAS Model Manager
-- Share and Collaborate with SAS Drive
-- Develop SAS Code with SAS Studio
-- Build Flows with SAS Studio
-- Develop Python Code with SAS Studio
-- Use the Python SWAT Package on the SAS Viya Platform
-- Accelerate Code in SAS Cloud Analytic Services
+- [SAS Viya and the Analytics Life Cycle](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325462141112/sas-viya-and-the-analytics-life-cycle?autoStart=true)
+- [Discover Information Assets with SAS Information Catalog](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134225112/discover-information-assets-with-sas-information-catalog?autoStart=true)
+- [Explore and Visualize Data with SAS Visual Analytics}(https://video.sas.com/detail/videos/sas-viya-quick-start/video/6323595794112/explore-and-visualize-data-with-sas-visual-analytics?autoStart=true)
+- [Build Models with SAS Model Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326334754112/build-models-with-sas-model-studio?autoStart=true)
+- [Manage Models with SAS Model Manager](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134528112/manage-models-with-sas-model-manager?autoStart=true)
+- [Develop SAS Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325460656112/develop-sas-code-with-sas-studio?autoStart=true)
+- [Build Flows with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325462242112/build-flows-with-sas-studio?autoStart=true)
+- [Accelerate Code in SAS Cloud Analytic Services](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326133063112/accelerate-code-with-sas-cloud-analytic-services?autoStart=true)
+- Prepare Data with SAS Data Studio (coming soon)
+- Share and Collaborate with SAS Drive (coming soon)
+- Develop Python Code with SAS Studio (coming soon)
+- Use the Python SWAT Package on the SAS Viya Platform (coming soon)
 
 ### Prerequisites
 
