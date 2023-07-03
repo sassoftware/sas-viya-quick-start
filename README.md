@@ -9,7 +9,7 @@
 The following videos are included in the Quick Start series:
 - [SAS Viya and the Analytics Life Cycle](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325462141112/sas-viya-and-the-analytics-life-cycle?autoStart=true)
 - [Discover Information Assets with SAS Information Catalog](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134225112/discover-information-assets-with-sas-information-catalog?autoStart=true)
-- [Explore and Visualize Data with SAS Visual Analytics}(https://video.sas.com/detail/videos/sas-viya-quick-start/video/6323595794112/explore-and-visualize-data-with-sas-visual-analytics?autoStart=true)
+- [Explore and Visualize Data with SAS Visual Analytics](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6323595794112/explore-and-visualize-data-with-sas-visual-analytics?autoStart=true)
 - [Build Models with SAS Model Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326334754112/build-models-with-sas-model-studio?autoStart=true)
 - [Manage Models with SAS Model Manager](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134528112/manage-models-with-sas-model-manager?autoStart=true)
 - [Develop SAS Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325460656112/develop-sas-code-with-sas-studio?autoStart=true)
