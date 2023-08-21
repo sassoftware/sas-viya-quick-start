@@ -15,10 +15,10 @@ The following videos are included in the Quick Start series:
 - [Develop SAS Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325460656112/develop-sas-code-with-sas-studio?autoStart=true)
 - [Build Flows with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325462242112/build-flows-with-sas-studio?autoStart=true)
 - [Accelerate Code in SAS Cloud Analytic Services](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326133063112/accelerate-code-with-sas-cloud-analytic-services?autoStart=true)
-- Prepare Data with SAS Data Studio (coming soon)
-- Share and Collaborate with SAS Drive (coming soon)
-- Develop Python Code with SAS Studio (coming soon)
-- Use the Python SWAT Package on the SAS Viya Platform (coming soon)
+- [Prepare Data with SAS Data Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332730394112/prepare-data-with-sas-data-studio?autoStart=true)
+- [Share and Collaborate with SAS Drive](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332187252112/share-and-collaborate-with-sas-drive?autoStart=true)
+- [Use Python Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332185094112/use-python-code-in-sas-studio?autoStart=true)
+- [Use the Python SWAT Package on the SAS Viya Platform](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332198984112/use-the-python-swat-package-on-the-sas-viya-platform?autoStart=true)
 
 ### Prerequisites
 
