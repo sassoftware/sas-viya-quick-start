@@ -4,19 +4,19 @@
 /*******************************************************************************/
 
 
-/***************************************************/
-/* Run this program to load the HOME_EQUITY        */
-/*     table used the SAS Viya Quick Start Videos. */
-/***************************************************/
+/******************************************************************/
+/* Run this program to load the HOME_EQUITY and CUSTOMER_COMMENTS */
+/*     table used the SAS Viya Quick Start Videos.                */
+/******************************************************************/
 
-%macro loadHomeEquity;
+%macro loadQuickStart;
     /* Create copy of HOMEEQUITY in quick-start folder */
 
     %let fileName = %scan(&_sasprogramfile,-1,'/');
     %let path = %sysfunc(tranwrd(&_sasprogramfile, &fileName,));
     libname outlib "&path";
 
-    %if %sysfunc(exist(sashelp.homeequit)) %then %do;
+    %if %sysfunc(exist(sashelp.homeequity)) %then %do;
         %put NOTE: HOME_EQUITY in-memory table loaded from SASHELP.HOMEEQUITY;
         data outlib.home_equity;
 		    set sashelp.homeequity;
@@ -66,16 +66,36 @@
 		    attrib _all_ informat=;
 		quit;
 		
-		filename data clear;			
+		filename data clear;	
+
     %end;
 
-    /*  Load and promote the HOME_EQUITY into memory in the CASUSER caslib. */
+    /* Create copy of CUSTOMER_COMMENTS in quick-start folder */
+
+	filename data TEMP;
+	proc http 
+	   method="GET" 
+	   url="https://support.sas.com/documentation/onlinedoc/viya/exampledatasets/customer_comments.csv" 
+	   out=data;
+	run;
+	
+	/*  Import home_equity.csv and create WORK.HOMEEQUITY */
+	proc import file="data" dbms=csv out=outlib.customer_comments replace;
+	    guessingrows=10000;
+	run;	
+    filename data clear;
+
+    /*  Load and promote HOME_EQUITY and CUSTOMER_COMMENTS into memory in the CASUSER caslib. */
     /*  Save HOME_EQUITY.sashdat in the CASUSER caslib so it is saved on disk.  */
 
     cas mysession;
     proc casutil;
         droptable casdata="home_equity" incaslib="casuser" quiet;
+        droptable casdata="customer_comments" incaslib="casuser" quiet;
+
         load data=outlib.home_equity outcaslib="casuser" casout="home_equity" promote;
+        load data=outlib.customer_comments outcaslib="casuser" casout="customer_comments" promote;
+
         save casdata="home_equity" incaslib="casuser" casout="home_equity" outcaslib="casuser" replace;
         list tables incaslib="casuser";
     quit;
@@ -83,7 +103,6 @@
 
     libname outlib clear;
 
+%mend loadQuickStart;
 
-%mend loadHomeEquity;
-
-%loadHomeEquity
+%loadQuickStart
