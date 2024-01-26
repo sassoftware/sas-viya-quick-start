@@ -20,15 +20,6 @@ The following videos are included in the Quick Start series:
 - [Use Python Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332185094112/use-python-code-in-sas-studio?autoStart=true)
 - [Use the Python SWAT Package on the SAS Viya Platform](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332198984112/use-the-python-swat-package-on-the-sas-viya-platform?autoStart=true)
 
-### Prerequisites
-
-It is possible your SAS Viya environmnent may already have the supporting video files loaded. To determine if the files are included, follow these steps:
-1.	In SAS Viya, select the Applications menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
-2.	In the Navigation pane on the left, select **Explorer**. 
-3.	Expand **Files** > **data** > **quick-start**. If this folder exsists, then the supporting files are loaded in your environment. 
-
-If the files are not loaded, then follow the **Installation** steps.
-
 ### Installation
 
 1.	Visit https://github.com/sassoftware/sas-viya-quick-start and click **Code** > **Download ZIP**. 
@@ -40,8 +31,8 @@ NOTE: The file location demonstrated in the video is **Files** > **data** > **qu
 6.	Select the new **quick-start** folder and click the **Upload** button. 
 7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press **Ctrl+A** to select all the files, then click **Open** > **Upload**.
 8.	In the Explorer, expand the **quick-start** folder and double-click the **Load_Quick_Start_Data.sas** program to open it. 
-9.	Do not make any changes to the code. Click **Run**. Confirm the **home_equity.sashdat** file is listed in the CAS File Information table.  
-NOTE: As you follow along in your environment, the **HOME_EQUITY** table will be in the **Casuser** caslib. 
+9.	Do not make any changes to the code. Click **Run**. Confirm the **HOME_EQUITY** and **CUSTOMER_COMMENTS** tables are listed in the Table Information report.  
+NOTE: As you follow along in your environment, the **HOME_EQUITY** and **CUSTOMER_COMMENTS** tables will be in the **Casuser** caslib. 
 
 ## Contributing
 
