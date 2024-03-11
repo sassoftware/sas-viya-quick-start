@@ -14,6 +14,7 @@ The following videos are included in the Quick Start series:
 - [Manage Models with SAS Model Manager](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134528112/manage-models-with-sas-model-manager?autoStart=true)
 - [Develop SAS Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325460656112/develop-sas-code-with-sas-studio?autoStart=true)
 - [Build Flows with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6325462242112/build-flows-with-sas-studio?autoStart=true)
+- [Create Custom Steps with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6347011003112/create-custom-steps-with-sas-studio?autoStart=true)
 - [Accelerate Code in SAS Cloud Analytic Services](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326133063112/accelerate-code-with-sas-cloud-analytic-services?autoStart=true)
 - [Prepare Data with SAS Data Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332730394112/prepare-data-with-sas-data-studio?autoStart=true)
 - [Share and Collaborate with SAS Drive](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332187252112/share-and-collaborate-with-sas-drive?autoStart=true)
