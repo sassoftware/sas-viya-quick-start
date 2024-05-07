@@ -28,7 +28,9 @@ The following videos are included in the Quick Start series:
 3.	In SAS Viya, select the Applications menu in the upper left corner and select **Develop Code and Flows**. SAS Studio launches. 
 4.	In the Navigation pane on the left, select the **Explorer** icon. 
 5.	Expand ![image](https://github.com/sassoftware/sas-viya-quick-start/assets/22669486/d8c5b592-25ba-4b81-9e9e-795cb5efcee2). Navigate to your preferred location for storing the files. You must have write access. Right-click on the desired folder and select **New folder**. Name the folder **quick-start**.  
-NOTE: Your environment may have a different label other than **Files**, but the icon will look the same. The file location demonstrated in the video is **Files** > **data** > **quick-start**.
+    * Your environment may have a different label other than **Files**, but the icon will look the same.
+    * If you create the **quick-start** folder under **SAS Content** rather than **Files**, the SAS programs will not run successfully.
+    * The file location demonstrated in the videos is **Files** > **data** > **quick-start**.
 6.	Select the new **quick-start** folder and click the **Upload** button. 
 7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press **Ctrl+A** to select all the files, then click **Open** > **Upload**.
 8.	In the Explorer, expand the **quick-start** folder and double-click the **Load_Quick_Start_Data.sas** program to open it. 
