@@ -102,6 +102,8 @@
         save casdata="customer" incaslib="casuser" casout="customer.parquet" outcaslib="casuser" replace;
         save casdata="country_lookup" incaslib="casuser" casout="country_lookup.csv" outcaslib="casuser" replace;
 
+        droptable casdata="country_lookup" incaslib="casuser" quiet;
+
         list tables incaslib="casuser";
     quit;
     cas mysession terminate;
