@@ -92,11 +92,16 @@
     proc casutil;
         droptable casdata="home_equity" incaslib="casuser" quiet;
         droptable casdata="customer" incaslib="casuser" quiet;
+        droptable casdata="country_lookup" incaslib="casuser" quiet;
 
         load data=outlib.home_equity outcaslib="casuser" casout="home_equity" promote;
         load data=outlib.customer outcaslib="casuser" casout="customer" promote;
+        load file="&path/country_lookup.csv" outcaslib="casuser" casout="country_lookup";
 
         save casdata="home_equity" incaslib="casuser" casout="home_equity" outcaslib="casuser" replace;
+        save casdata="customer" incaslib="casuser" casout="customer.parquet" outcaslib="casuser" replace;
+        save casdata="country_lookup" incaslib="casuser" casout="country_lookup.csv" outcaslib="casuser" replace;
+
         list tables incaslib="casuser";
     quit;
     cas mysession terminate;
