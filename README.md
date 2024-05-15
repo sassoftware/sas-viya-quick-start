@@ -34,8 +34,8 @@ The following videos are included in the Quick Start series:
 6.	Select the new **quick-start** folder and click the **Upload** button. 
 7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press **Ctrl+A** to select all the files, then click **Open** > **Upload**.
 8.	In the Explorer, expand the **quick-start** folder and double-click the **Load_Quick_Start_Data.sas** program to open it. 
-9.	Do not make any changes to the code. Click **Run**. Confirm the **HOME_EQUITY** and **CUSTOMER_COMMENTS** tables are listed in the Table Information report.  
-NOTE: As you follow along in your environment, the **HOME_EQUITY** and **CUSTOMER_COMMENTS** tables will be in the **Casuser** caslib. 
+9.	Do not make any changes to the code. Click **Run**. Confirm the **HOME_EQUITY** and **CUSTOMER** tables are listed in the Table Information report.  
+NOTE: As you follow along in your environment, the **HOME_EQUITY** and **CUSTOMER** tables will be in the **Casuser** caslib. 
 
 ## Contributing
 
