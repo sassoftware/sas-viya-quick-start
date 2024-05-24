@@ -1,7 +1,6 @@
 ## Copyright © 2022, SAS Institute Inc., Cary, NC, USA.  All Rights Reserved.
 ##  SPDX-License-Identifier: Apache-2.0                                        
 
-
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
@@ -72,7 +71,7 @@ print(', '.join(dm_input))
 # Results
 #----------
 # Save VariableImportance to CSV
-full_input_vars = dm_interval_input + list(class_ohe.get_feature_names())
+full_input_vars = dm_interval_input + list(class_ohe.get_feature_names_out())
 varimp = pd.DataFrame(list(zip(full_input_vars, dm_model.feature_importances_)), columns=['Variable Name', 'Importance'])
 varimp.to_csv(dm_nodedir + '/rpt_var_imp.csv', index=False)
 
