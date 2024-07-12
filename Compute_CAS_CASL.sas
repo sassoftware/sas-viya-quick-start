@@ -9,7 +9,7 @@
 
 %let fileName = %scan(&_sasprogramfile,-1,'/');
 %let path = %sysfunc(tranwrd(&_sasprogramfile, &fileName,));
-%include "&path/Load_Quick_Start_Data.sas";
+%include "&path/_Load_Quick_Start_Data.sas";
 
 
 /******************************************************/
