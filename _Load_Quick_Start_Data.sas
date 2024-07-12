@@ -18,7 +18,7 @@
 
     %if %sysfunc(exist(sashelp.homeequity)) %then %do;
         %put NOTE: HOME_EQUITY in-memory table loaded from SASHELP.HOMEEQUITY;
-        data outlib.home_equity;
+        data outlib.home_equity work.home_equity;
 		    set sashelp.homeequity;
 		run;
     %end;
@@ -65,6 +65,9 @@
 		           BAD CITY CLNO DELINQ DEROG DIVISION JOB NINQ REASON REGION STATE YOJ;
 		    attrib _all_ informat=;
 		quit;
+                proc copy out=work in=outlib;
+		    select home_equity;
+                run;
 		
 		filename data clear;	
 
