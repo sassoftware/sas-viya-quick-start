@@ -1,0 +1,13 @@
+''' List all output parameters as comma-separated values in the "Output:" docString. Do not specify "None" if there is no output parameter.'''
+''' List all Python packages that are not built-in packages in the "DependentPackages:" docString. Separate the package names with commas on a single line. '''
+''' DependentPackages: '''
+
+def execute (RESULTFLAG,RESULTREASON):
+   'Output:message'
+   if RESULTFLAG == -1: 
+      message_part_1 = "Dear Applicant, \n We are writing to inform you of your recent home equity loan application. Unfortunately you do not meet our criteria for loan approval for the following reason(s): "
+   else: 
+      message_part_1 = "Dear Applicant, \n We are pleased to inform you that your home equity loan application has been approved."
+   
+   message = message_part_1 + RESULTREASON
+   return message
