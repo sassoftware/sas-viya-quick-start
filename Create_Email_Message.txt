@@ -7,7 +7,7 @@ def execute (RESULTFLAG,RESULTREASON):
    if RESULTFLAG == -1: 
       message_part_1 = "Dear Applicant, \n We are writing to inform you of your recent home equity loan application. Unfortunately you do not meet our criteria for loan approval for the following reason(s): "
    else: 
-      message_part_1 = "Dear Applicant, \n We are pleased to inform you that your home equity loan application has been approved."
+      message_part_1 = "Dear Applicant, \n We are writing to inform you of your recent home equity loan application. "
    
    MESSAGE = message_part_1 + RESULTREASON
    return MESSAGE
