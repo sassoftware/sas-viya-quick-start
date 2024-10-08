@@ -19,8 +19,11 @@
     %if %sysfunc(exist(sashelp.homeequity)) %then %do;
         %put NOTE: HOME_EQUITY in-memory table loaded from SASHELP.HOMEEQUITY;
         data outlib.home_equity work.home_equity;
-		    set sashelp.homeequity;
-		run;
+            set sashelp.homeequity;
+            call streaminit(12345);
+            CUSTID=floor(10000000 + rand("uniform") * (99999999 - 10000000 + 1));
+            label CUSTID="Customer ID";
+        run;
     %end;
 
     %else %do;
@@ -38,7 +41,13 @@
 		    guessingrows=5960;
 		run;
 		
-		proc datasets lib=outlib memtype=data nolist;
+		data outlib.home_equity;
+            set outlib.home_equity;
+            call streaminit(12345);
+            CUSTID=floor(10000000 + rand("uniform") * (99999999 - 10000000 + 1));
+        run;
+
+        proc datasets lib=outlib memtype=data nolist;
 		    modify home_equity;
 		    label APPDATE="Loan Application Date"
 		          BAD="Loan Status"
@@ -57,17 +66,19 @@
 		          REGION="Region"
 		          STATE="State"
 		          VALUE="Value of Current Property"
-		          YOJ="Years at Present Job";
+		          YOJ="Years at Present Job"
+                          CUSTID="Customer ID";
 		    format APPDATE date9.
 		           CLAGE comma8.1
 		           LOAN MORTDUE VALUE dollar12.
 		           DEBTINC 8.1
-		           BAD CITY CLNO DELINQ DEROG DIVISION JOB NINQ REASON REGION STATE YOJ;
+		           BAD CITY CLNO DELINQ DEROG DIVISION JOB NINQ REASON REGION STATE YOJ CUSTID;
 		    attrib _all_ informat=;
 		quit;
-                proc copy out=work in=outlib;
+                  
+        proc copy out=work in=outlib;
 		    select home_equity;
-                run;
+        run;
 		
 		filename data clear;	
 
