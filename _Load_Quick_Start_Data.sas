@@ -19,35 +19,20 @@
     %if %sysfunc(exist(sashelp.homeequity)) %then %do;
         %put NOTE: HOME_EQUITY in-memory table loaded from SASHELP.HOMEEQUITY;
         data outlib.home_equity work.home_equity;
-            set sashelp.homeequity;
-            call streaminit(12345);
-            CUSTID=floor(10000000 + rand("uniform") * (99999999 - 10000000 + 1));
-            label CUSTID="Customer ID";
-        run;
+		    set sashelp.homeequity;
+		run;
     %end;
 
     %else %do;
         
-		filename data TEMP;
-        %put NOTE: HOME_EQUITY in-memory table loaded from home_equity.csv on support.sas.com;
-		proc http 
-		   method="GET" 
-		   url="https://support.sas.com/documentation/onlinedoc/viya/exampledatasets/home_equity.csv" 
-		   out=data;
-		run;
+        %put NOTE: HOME_EQUITY in-memory table loaded from home_equity.csv;
 		
 		/*  Import home_equity.csv and create HOMEEQUITY.sas7bdat in quick-start folder */
-		proc import file="data" dbms=csv out=outlib.home_equity replace;
+		proc import file="&path/home_equity.csv" dbms=csv out=outlib.home_equity replace;
 		    guessingrows=5960;
 		run;
 		
-		data outlib.home_equity;
-            set outlib.home_equity;
-            call streaminit(12345);
-            CUSTID=floor(10000000 + rand("uniform") * (99999999 - 10000000 + 1));
-        run;
-
-        proc datasets lib=outlib memtype=data nolist;
+		proc datasets lib=outlib memtype=data nolist;
 		    modify home_equity;
 		    label APPDATE="Loan Application Date"
 		          BAD="Loan Status"
@@ -66,38 +51,24 @@
 		          REGION="Region"
 		          STATE="State"
 		          VALUE="Value of Current Property"
-		          YOJ="Years at Present Job"
-                          CUSTID="Customer ID";
+		          YOJ="Years at Present Job";
 		    format APPDATE date9.
 		           CLAGE comma8.1
 		           LOAN MORTDUE VALUE dollar12.
 		           DEBTINC 8.1
-		           BAD CITY CLNO DELINQ DEROG DIVISION JOB NINQ REASON REGION STATE YOJ CUSTID;
+		           BAD CITY CLNO DELINQ DEROG DIVISION JOB NINQ REASON REGION STATE YOJ;
 		    attrib _all_ informat=;
 		quit;
-                  
         proc copy out=work in=outlib;
 		    select home_equity;
         run;
 		
-		filename data clear;	
-
     %end;
 
-    /* Create copy of CUSTOMER in quick-start folder */
-
-	filename data TEMP;
-	proc http 
-	   method="GET" 
-	   url="https://support.sas.com/documentation/onlinedoc/viya/exampledatasets/customer.csv" 
-	   out=data;
-	run;
-	
 	/*  Import customer.csv and create CUSTOMER.sas7bdat in quick-start folder */
-	proc import file="data" dbms=csv out=outlib.customer replace;
+	proc import file="&path/customer.csv" dbms=csv out=outlib.customer replace;
 	    guessingrows=10000;
 	run;	
-    filename data clear;
 
     /*  Load and promote HOME_EQUITY and CUSTOMER into memory in the CASUSER caslib. */
     /*  Save HOME_EQUITY.sashdat in the CASUSER caslib so it is saved on disk.  */
