@@ -17,6 +17,7 @@ The following videos are included in the Quick Start series:
 - [Git Integration with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6358959868112/git-integration-with-sas-studio?autoStart=true)
 - [Build Models with SAS Model Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326334754112/build-models-with-sas-model-studio?autoStart=true)
 - [Manage Models with SAS Model Manager](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326134528112/manage-models-with-sas-model-manager?autoStart=true)
+- [Build Decisions with SAS Intelligent Decisioning](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6364412742112/build-decisions-with-sas-intelligent-decisioning?autoStart=true)
 - [Accelerate Code in SAS Cloud Analytic Services](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6326133063112/accelerate-code-with-sas-cloud-analytic-services?autoStart=true)
 - [Share and Collaborate with SAS Drive](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332187252112/share-and-collaborate-with-sas-drive?autoStart=true)
 - [Use Python Code with SAS Studio](https://video.sas.com/detail/videos/sas-viya-quick-start/video/6332185094112/use-python-code-in-sas-studio?autoStart=true)
@@ -34,7 +35,7 @@ The following videos are included in the Quick Start series:
     * The file location demonstrated in the videos is **Files** > **data** > **quick-start**.
 6.	Select the new **quick-start** folder and click the **Upload** button. 
 7.	Click **Add**, then navigate to the files you unzipped on your local machine. Press **Ctrl+A** to select all the files, then click **Open** > **Upload**.
-8.	In the Explorer, expand the **quick-start** folder and double-click the **Load_Quick_Start_Data.sas** program to open it. 
+8.	In the Explorer, expand the **quick-start** folder and double-click the **_Load_Quick_Start_Data.sas** program to open it. 
 9.	Do not make any changes to the code. Click **Run**. Confirm the **HOME_EQUITY** and **CUSTOMER** tables are listed in the Table Information report.  
 NOTE: As you follow along in your environment, the **HOME_EQUITY** and **CUSTOMER** tables will be in the **Casuser** caslib. 
 
