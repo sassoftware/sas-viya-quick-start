@@ -36,4 +36,4 @@
 	title;
 	footnote;
 
-/* END comment. Source: SAS Studio *
+/* END comment. Source: SAS Studio */
