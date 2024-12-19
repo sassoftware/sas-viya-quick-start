@@ -35,5 +35,3 @@
 	run;
 	title;
 	footnote;
-
-/* END */
