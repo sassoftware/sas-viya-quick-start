@@ -37,3 +37,5 @@
 	footnote;
 
 /* END */
+proc print data=sashelp.air;
+run;
