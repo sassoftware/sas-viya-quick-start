@@ -67,9 +67,9 @@ filename data clear;
 
 cas; 
 libname casuser cas caslib="casuser";
-
-
-
+/*
+comment dim_customer
+*/
 
 
 
