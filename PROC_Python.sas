@@ -23,32 +23,31 @@ df = (df_raw
 )
 
 
-## Preview the dataframe and number of missing values
+## Preview the dataframe
 print(df.head(5))
-print(df.isna().sum())
 
 
 ## Write the DataFrame as a SAS data set in the WORK library
-SAS.df2sd(df, 'work.home_equity_compute_sas')
+SAS.df2sd(df, 'work.homeequity_sas')
 
 endsubmit;
 quit;
 
 
 * Connect to the CAS Server *;
-cas conn;
+cas mySession;
 
 * Drop and then load data to the CAS server *;
 proc casutil;
 	* Drop the global scope CAS table if it exists *;
-	droptable casdata='home_equity_cas_sas' incaslib="casuser" quiet;
+	droptable casdata='homeequity_sas' incaslib="casuser" quiet;
 
 	* Send the SAS data set to the CAS server and promote the table *;
-	load data=work.home_equity_compute_sas casout="home_equity_cas_sas" outcaslib="casuser" promote;
+	load data=work.homeequity_sas casout="homeequity_sas" outcaslib="casuser" promote;
 
 	* View in-memory CAS tables *;
 	list tables;
 quit;
 
 * Terminate the CAS connection *;
-cas conn terminate;
+cas mySession terminate;

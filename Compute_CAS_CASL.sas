@@ -1,10 +1,10 @@
 /*******************************************************************************/
-/*  Copyright © 2022, SAS Institute Inc., Cary, NC, USA.  All Rights Reserved. */
+/*  Copyright © 2025, SAS Institute Inc., Cary, NC, USA.  All Rights Reserved. */
 /*  SPDX-License-Identifier: Apache-2.0                                        */
 /*******************************************************************************/
 
 /***************************/
-/* Create work.home_equity */
+/* Create work.homeequity  */
 /***************************/
 
 %let fileName = %scan(&_sasprogramfile,-1,'/');
@@ -20,9 +20,9 @@ title "Compute Server Program";
 
 libname mydata "c:\mydata";
 
-data mydata.home_equity;
+data mydata.homeequity;
     length LOAN_OUTCOME $ 7;
-    set work.home_equity;
+    set work.homeequity;
     if Value ne . and MortDue ne . then LTV=MortDue/Value;
     CITY=propcase(City);
     if BAD=0 then LOAN_OUTCOME='Paid';
@@ -32,17 +32,17 @@ data mydata.home_equity;
     format LTV percent6.;
 run;
 
-proc contents data=mydata.home_equity;
+proc contents data=mydata.homeequity;
 run;
 title;
 
-proc freq data=mydata.home_equity;
+proc freq data=mydata.homeequity;
     tables Loan_Outcome Reason Job;
 run;
 
-proc means data=mydata.home_equity noprint;
+proc means data=mydata.homeequity noprint;
     var Loan DebtInc LTV;
-    output out=home_equity_summary;
+    output out=homeequity_summary;
 run;
 
 
@@ -54,7 +54,7 @@ cas mySession;
 
 /* Option #1: Load Data into Memory via CASUTIL Step */
 proc casutil;
-    load data=work.home_equity outcaslib="casuser" casdata="home_equity";
+    load data=work.homeequity outcaslib="casuser" casdata="homeequity";
 quit;
 
 /* Option #2: Load Data into Memory via DATA Step */
@@ -65,9 +65,9 @@ caslib _all_ assign;
 *libname casuser cas caslib=casuser;
 
 title "CAS-Enabled PROCS";
-data casuser.home_equity;
+data casuser.homeequity;
     length LOAN_OUTCOME $ 7;
-    set work.home_equity;
+    set work.homeequity;
     if Value ne . and MortDue ne . then LTV=MortDue/Value;
     CITY=propcase(City);
     if BAD=0 then LOAN_OUTCOME='Paid';
@@ -77,16 +77,16 @@ data casuser.home_equity;
     format LTV percent6.;
 run;
 
-proc contents data=casuser.home_equity;
+proc contents data=casuser.homeequity;
 run;
 
-proc freqtab data=casuser.home_equity;
+proc freqtab data=casuser.homeequity;
     tables Loan_Outcome Reason Job;
 run;
 
-proc mdsummary data=casuser.home_equity;
+proc mdsummary data=casuser.homeequity;
     var Loan MortDue Value DebtInc;
-    output out=casuser.home_equity_summary;
+    output out=casuser.homeequity_summary;
 run;
 
 cas mySession terminate;
@@ -100,14 +100,14 @@ cas mySession;
 
 title "CASL Results";
 proc cas;
-  * Create dictionary to reference home_equity table in Casuser;
-    tbl={name='home_equity', caslib='casuser'};
+  * Create dictionary to reference homeequity table in Casuser;
+    tbl={name='homeequity', caslib='casuser'};
   * Create CASL variable named DS to store DATA step code. Both 
       input and output tables must be in-memory;
     source ds;
-        data casuser.home_equity;
+        data casuser.homeequity;
             length LOAN_OUTCOME $ 7;
-            set casuser.home_equity;
+            set casuser.homeequity;
             if Value ne . and MortDue ne . then LTV=MortDue/Value;
             CITY=propcase(City);
             if BAD=0 then LOAN_OUTCOME='Paid';
@@ -117,14 +117,14 @@ proc cas;
             format LTV percent6.;
         run;
     endsource;
-  * Drop home_equity from casuser if it exists;
+  * Drop homeequity from casuser if it exists;
     table.dropTable / name=tbl['name'], caslib=tbl['caslib'], quiet=true;
-  * Load home_equity.sas7bdat to casuser;
-    upload path="&path/home_equity.sas7bdat" 
-        casout={caslib="casuser", name="home_equity", replace="true"};
+  * Load homeequity.sas7bdat to casuser;
+    upload path="&path/homeequity.sas7bdat" 
+        casout={caslib="casuser", name="homeequity", replace="true"};
   * Execute DATA step code;
     dataStep.runCode / code=ds;
-  * List home_equity column attributes, similar to PROC CONTENTS;
+  * List homeequity column attributes, similar to PROC CONTENTS;
     table.columnInfo / 
         table=tbl;
   * Generate frequency report, similar to PROC FREQ;

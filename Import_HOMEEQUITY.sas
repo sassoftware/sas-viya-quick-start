@@ -7,7 +7,7 @@
 /*********************************************/
 /* Read the home_equity.csv sample data from */ 
 /*     the SAS Support Example Data website  */
-/*     and create WORK.HOME_EQUITY.          */
+/*     and create WORK.HOMEEQUITY.           */
 /*********************************************/
 
 filename data TEMP;
@@ -18,13 +18,13 @@ proc http
    out=data;
 run;
 
-/*  Import edu_hmeq.csv and create WORK.HOME_EQUITY */
-proc import file="data" dbms=csv out=work.t_home_equity replace;
+/*  Import edu_hmeq.csv and create WORK.HOMEEQUITY */
+proc import file="data" dbms=csv out=work.t_homeequity replace;
     guessingrows=5960;
 run;
 
-data work.home_equity;
-    set work.t_home_equity;
+data work.homeequity;
+    set work.t_homeequity;
     label APPDATE="Loan Application Date"
           BAD="Loan Status"
           CITY="City"
@@ -52,10 +52,10 @@ data work.home_equity;
 run;
 
 proc datasets lib=work nolist;
-    delete t_home_equity;
+    delete t_homeequity;
 run;
 
-proc contents data=work.home_equity;
+proc contents data=work.homeequity;
 run;
 
 filename data clear;

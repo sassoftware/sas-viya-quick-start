@@ -21,7 +21,6 @@ df = (df_raw
 
 ## Preview the dataframe and number of missing values
 print(df.head(5))
-print(df.isna().sum())
 
 
 ##
@@ -29,23 +28,23 @@ print(df.isna().sum())
 ##
 
 # Load the DataFrame to the compute server as a SAS data set
-SAS.df2sd(df, 'work.home_equity_compute_py')
+SAS.df2sd(df, 'work.homeequity_py')
 
 
 ## Create a string with SAS code to connect to the CAS server, delete the global table if it exists, and then load data to CAS
 ## NOTE: You can also use the Python SWAT package to accomplish the same tasks below using all Python.
 
-prepareLoadingToCAS = '''
+LoadToCAS = '''
 * Connect to the CAS Server *;
-cas conn;
+cas mySession;
 
 * Drop and load data to the CAS server *;
 proc casutil;
 	* Drop the global scope CAS table if it exists *;
-	droptable casdata='home_equity_cas_py' incaslib="casuser" quiet;
+	droptable casdata='homeequity_py' incaslib="casuser" quiet;
 
 	* Send the SAS data set to the CAS server and promote the table *;
-	load data=work.home_equity_compute_py casout="home_equity_cas_py" outcaslib="casuser" promote;
+	load data=work.homeequity_py casout="homeequity_py" outcaslib="casuser" promote;
 
 	* View in-memory CAS tables *;
 	list tables;
@@ -53,4 +52,4 @@ quit;
 '''
 
 # Submit the above SAS code
-SAS.submit(prepareLoadingToCAS)
+SAS.submit(LoadToCAS)

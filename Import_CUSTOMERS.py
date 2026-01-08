@@ -8,4 +8,4 @@ import pandas as pd
 ## Access Data
 df = pd.read_csv(r'https://support.sas.com/documentation/onlinedoc/viya/exampledatasets/loan_customers.csv')
 
-SAS.df2sd(df, 'work.loan_customers')
+SAS.df2sd(df, 'work.customers')
