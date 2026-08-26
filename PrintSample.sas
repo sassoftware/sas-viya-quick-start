@@ -1,5 +1,5 @@
 /* Selection options are FIRST (first rows) or RANDOM (random sample) */
-%let selection=FIRST;
+%let selection=RANDOM;
 
 /* GET TOTAL ROW COUNT FROM TABLE */
 	
@@ -9,7 +9,7 @@
 
 /* SELECT FIRST 20 ROWS */
 %if &selection=FIRST %then %do;
-	title1 color="#545B66" "Sample from SASHELP.HOMEEQUITY";
+	title1 color="blue" "Sample from SASHELP.HOMEEQUITY";
 	title2 height=3 "First 20 of &N Rows";
 	data sample;
 	    set sashelp.homeequity(obs=20 keep=Bad Loan MortDue Value);
