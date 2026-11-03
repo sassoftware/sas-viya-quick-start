@@ -1,0 +1,6 @@
+﻿ruleset_id,ruleset_nm,folder_path,ruleset_desc,rule_id,rule_nm,rule_desc,rule_seq_no,conditional,record_rule_fired_flag,datatype,lhs_term,expression,expression_type,expression_order
+,Check Debt to Income,/Users/student/My Folder/Home Equity Decision,,ed48f1d6-f585-44a8-af73-4b25c4e3cec5,Default_rule_1,,1,if,Y,decimal,DEBTINC,> 40,CONDITION,1
+,Check Debt to Income,/Users/student/My Folder/Home Equity Decision,,ed48f1d6-f585-44a8-af73-4b25c4e3cec5,Default_rule_1,,1,if,Y,integer,RESULTFLAG,-1,ACTION,1
+,Check Debt to Income,/Users/student/My Folder/Home Equity Decision,,ed48f1d6-f585-44a8-af73-4b25c4e3cec5,Default_rule_1,,1,if,Y,string,RESULTREASON,'Your debt to income ratio is too high to be considered for a home equity loan.',ACTION,2
+,Check Debt to Income,/Users/student/My Folder/Home Equity Decision,,220d6de2-b89b-48d4-b9c3-ceb50c9898d2,Default_rule_1_else_1,,2,elseif,Y,integer,RESULTFLAG,1,ACTION,1
+,Check Debt to Income,/Users/student/My Folder/Home Equity Decision,,220d6de2-b89b-48d4-b9c3-ceb50c9898d2,Default_rule_1_else_1,,2,elseif,Y,string,RESULTREASON,"'Congratulations, your home equity loan application has been approved.'",ACTION,2
